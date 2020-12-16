@@ -4,11 +4,10 @@ title: imis内部组件使用
 
 ## LATER crud
 ```
-
 {
     defaultFormName:'smallClassForm',
 	type: 'crud',  //类型
-	watchName: ['smallClassRefresh'],  //
+	watchName: ['smallClassRefresh'], 
     //const {store} = useStore(parentId, 'smallClassRefresh');
     //store.getObservable('formSubmit').set({type: 'reload'});
 	"api":  {
@@ -100,18 +99,18 @@ title: imis内部组件使用
 		options: {
 			defaultPageSize: 50
 		},
-// pagination={pagination === false ? false
-//     : {
-//         showSizeChanger: true,
-//         showQuickJumper: options?.showQuickJumper || false,
-//         showTotal: (total: number) => (options?.showQuickJumper ? `共${total}条` : ''),
-//         current: pageNum,
-//         pageSize,
-//         total,
-//         defaultPageSize: options?.defaultPageSize || 10,
-//         pageSizeOptions: options?.pageSizeOptions || ['10', '20', '50', '100']
-//     }
-// }
+        // pagination={pagination === false ? false
+        //     : {
+        //         showSizeChanger: true,
+        //         showQuickJumper: options?.showQuickJumper || false,
+        //         showTotal: (total: number) => (options?.showQuickJumper ? `共${total}条` : ''),
+        //         current: pageNum,
+        //         pageSize,
+        //         total,
+        //         defaultPageSize: options?.defaultPageSize || 10,
+        //         pageSizeOptions: options?.pageSizeOptions || ['10', '20', '50', '100']
+        //     }
+        // }
 		columns: [
 			{
 				title: '小班课名称',
