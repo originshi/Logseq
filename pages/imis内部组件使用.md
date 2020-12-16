@@ -81,13 +81,18 @@ title: imis内部组件使用
 				submitOnChange: true
 			},
 		],
-       / 
+//当父级的prop变化时，crud会重新请求，并且把父级的这些可观察者的值放在参数中
+       extendData: [
+			{
+				key: 'subclazzNumber',
+				data: 'subclazzNumber'
+			}
 		],
-		useAction: false
+		useAction: false  //是否展示 查询 重置等按钮
 	},
 	actions: [
 		{
-			type: 'newSmallClass',
+			type: 'newSmallClass', //新增功能
 		}
 	],
 	body: {
@@ -95,12 +100,24 @@ title: imis内部组件使用
 		options: {
 			defaultPageSize: 50
 		},
+// pagination={pagination === false ? false
+//     : {
+//         showSizeChanger: true,
+//         showQuickJumper: options?.showQuickJumper || false,
+//         showTotal: (total: number) => (options?.showQuickJumper ? `共${total}条` : ''),
+//         current: pageNum,
+//         pageSize,
+//         total,
+//         defaultPageSize: options?.defaultPageSize || 10,
+//         pageSizeOptions: options?.pageSizeOptions || ['10', '20', '50', '100']
+//     }
+// }
 		columns: [
 			{
 				title: '小班课名称',
 				key: 'lessonName',
 				dataIndex: 'lessonName',
-				"type": "text",
+				"type": "text", //直接展示文案
 			},
 			{
 				title: '小班课开始-结束时间',
@@ -187,4 +204,24 @@ title: imis内部组件使用
 		]
 	}
 }
+
+Renderer({
+	test: /^smallClassStatus$/,
+	name: 'smallClassStatus'
+})(function (props) {
+	const {
+		schema: {
+			parentId
+		},
+	} = props;
+	const data = useObservable({storeId: parentId, prop: 'record', options: {fireImmediately: true}}) ?? {};	
+	const {
+		status
+	} = data;
+	return (
+		<div className={styles[SmallClassClassStatusClass[status]]}>
+			{SmallClassClassStatusStr[status]}
+		</div>
+	);
+});
 ```
