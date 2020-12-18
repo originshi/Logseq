@@ -2,7 +2,7 @@
 title: imis内部组件使用
 ---
 
-## LATER crud
+## crud
 ```
 {
     defaultFormName:'smallClassForm',
