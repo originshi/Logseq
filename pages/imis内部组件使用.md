@@ -5,6 +5,8 @@ title: imis内部组件使用
 ## crud
 ```
 {
+   
+{
     defaultFormName:'smallClassForm',
 	type: 'crud',  //类型
 	watchName: ['smallClassRefresh'], 
@@ -223,4 +225,3 @@ Renderer({
 		</div>
 	);
 });
-```
